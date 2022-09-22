@@ -40,6 +40,8 @@ export const getStaticPaths: GetStaticPaths = async() => {
 const Post = ({post}) => {
     const [loading, setLoading] = useState(true);
 
+    console.log(post)
+
     useEffect(() => {
         if(!post){
             setLoading(true)
@@ -67,7 +69,7 @@ const Post = ({post}) => {
                 />
                 <Box w="100%">
                     <Stack w="80%" justify={"center"} m={6} direction={'row'} spacing={4} align={'center'}>
-                        <Link href={"/"} >
+                        <Link href={ post._embedded.author[0].link ?? post.slug } >
                             <a>
                                 <Avatar
                                     size={"lg"}
@@ -76,7 +78,7 @@ const Post = ({post}) => {
                             </a>
                         </Link>
                         <Stack direction={'column'} spacing={0} fontSize={"2xl"}>
-                            <Link href={"/"} >
+                            <Link href={ post._embedded.author[0].link ?? post.slug } >
                                 <a>
                                     <Text fontWeight={600}>{post._embedded.author[0].name ?? "Indisponível"}</Text>
                                 </a>
