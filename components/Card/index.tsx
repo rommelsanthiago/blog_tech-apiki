@@ -31,7 +31,7 @@ export default function Card({ post }) {
             icon: 'info',
             title: 'Carregando, aguarde!',
             showConfirmButton: false,
-            timer: 5000, 
+            timer: 1500, 
             timerProgressBar: true,
             didOpen: () => {
               Swal.showLoading()
